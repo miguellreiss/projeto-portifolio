@@ -37,6 +37,9 @@ header {
   display: flex;
   justify-content: flex-end;
   align-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 #menu ul {
@@ -156,6 +159,10 @@ article {
   border-radius: 4px;
 }
 
+#formacao h2 {
+  padding-bottom: 10px;
+}
+
 #fomacao-container {
   display: flex;
   flex-direction: column;
@@ -189,7 +196,7 @@ article {
 
 #projeto-container {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   gap: 20px;
 }
 
