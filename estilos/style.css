@@ -27,34 +27,36 @@ body.escuro {
   --fundo-principal: #222222;
   --texto: #e0e0e0;
   --texto-inverso: #333333;
-  --destaque: #ff5502;
-  --destaque-inverso: #a73917;
+  --destaque: #00ff37;
+  --destaque-inverso: #00ffbf;
   --fundo-card: #444444;
 }
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  line-height: 1,5em;
   background-color: var(--fundo-principal);
   color: var(--texto);
   transition: background-color 1s, color 1s;
 }
 
 header {
-  background-color: var(--destaque);
-  color: var(--texto);
-  padding: 10px;
   display: flex;
   justify-content: flex-end;
-  align-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--destaque);
+  color: var(--texto);
   position: sticky;
   top: 0;
   z-index: 1;
 }
 
 #menu ul {
-  list-style-type: none;
   display: flex;
+  flex-direction: row;
+  justify-content: end;
+  color: var(--texto-inverso);
+  list-style-type: none;
   gap: 10px;
 }
 
@@ -65,6 +67,7 @@ header {
   padding: 12px 15px;
   border-radius: 5px;
   transition: background-color 1s, color 0.5s;
+
 }
 
 #menu a:hover {
@@ -105,10 +108,13 @@ main {
   text-align: center;
 }
 
+#ficha p {
+  text-align: justify;
+}
+
 #social {
   display: flex;
   justify-content: center;
-  align-items: center;
   font-size: 1.6em;
   gap: 1em;
   margin-top: 15px;
@@ -130,7 +136,7 @@ main {
 article {
   background-color: var(--fundo-card);
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-radius: 8px;
 }
 
@@ -140,11 +146,18 @@ article {
   gap: 30px;
 }
 
+#skills h2 {
+  color: var(--destaque);
+  margin-bottom: 10px;
+  font-size: 1.6em;
+  text-align: center;
+}
+
 .info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-} 
+}
 
 .nome {
   font-weight: bold;
@@ -169,37 +182,40 @@ article {
   border-radius: 4px;
 }
 
-#formacao h2 {
-  padding-bottom: 10px;
-}
-
-#fomacao-container {
+#formacao {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-#formacao-container .curso {
+#formacao h2 {
+  color: var(--destaque);
+  margin: 15px;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#curso {
   background-color: var(--fundo-principal);
   border-radius: 8px;
   border-left: 5px solid var(--destaque-inverso);
   padding-left: 15px;
-  transition: border-width 0.9s border-color 0.5s;
+  transition: border-width 0.9s, border-color 0.5s;
 }
 
-#formacao-container .curso:hover {
+#curso:hover {
   border-left-width: 15px;
   border-color: var(--destaque);
   cursor: pointer;
 }
 
-#formacao-container .periodo {
+.periodo {
   font-size: 0.8em;
   font-weight: bold;
   color: var(--texto);
 }
 
-#formacao-container .instituicao {
+#instituicao {
   font-size: 1.1em;
   color: var(--destaque-inverso);
 }
@@ -210,24 +226,31 @@ article {
   gap: 20px;
 }
 
-#projeto-container .projeto {
+#projeto-container h2 {
+  color: var(--destaque);
+  margin: 15px;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.projeto {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
   background-color: var(--fundo-principal);
   border-radius: 8px;
   border-left: 5px solid var(--destaque-inverso);
   padding: 10px;
-  transition: border-color 0.5s border-width 0.9s ;
+  transition: border-color 0.5s, border-width 0.5s;
 }
 
-#projeto-container .projeto:hover {
+.projeto:hover {
   border-left-width: 15px;
   border-color: var(--destaque);
   cursor: pointer;
 }
 
-#projeto-container .foto {
+.projeto > .foto {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
@@ -243,48 +266,38 @@ footer {
 }
 
 footer a {
+  text-decoration: none;
   color: var(--texto-inverso);
   font-weight: bold;
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: var(--destaque-inverso);
 }
 
 @media screen and (min-width: 768px) {
   main {
     grid-template-columns: auto 300px 1fr auto;
   }
-
-  section#ficha {
+  #ficha {
     grid-column: 2 / 3;
     height: fit-content;
     position: sticky;
     top: 65px;
   }
-
-  section#detalhes {
-    grid-column: 3 / 4;
+  #detalhes {
+    grid-column: 3 / 4
   }
-
   #skill-container {
     grid-template-columns: 1fr 1fr;
   }
-
-  #projeto-container .projeto {
+  .projeto {
     flex-direction: row-reverse;
     justify-content: space-between;
   }
-
-  #projeto-container .projeto-info {
+  .projeto-info {
     max-width: 80%;
   }
-
-  #projeto-container .foto {
+  .foto {
     aspect-ratio: 16/9;
     width: 20%;
     max-height: 200px;
   }
-
 }
+
